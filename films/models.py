@@ -12,6 +12,19 @@ class Directors(models.Model):
     def __str__(self):
         return self.name
 
+
+class MovieGenres(models.Model):
+    title = models.CharField(max_length=64, unique=True, verbose_name='Жанр')
+    slug = models.SlugField(unique=True, verbose_name='URL')
+
+    class Meta:
+        db_table = 'genre'
+        verbose_name = 'Жанр'
+        verbose_name_plural = 'Жанры'
+
+    def __str__(self):
+        return self.title
+
 class Films(models.Model):
     title = models.CharField(max_length=128, unique=True, verbose_name='Название фильма')
     slug = models.SlugField(unique=True, verbose_name='URL')
@@ -19,7 +32,9 @@ class Films(models.Model):
     image = models.ImageField(upload_to='films_images', verbose_name='Постер фильма')
     release_date = models.DateTimeField(verbose_name='Дата выхода фильма')
     score = models.PositiveIntegerField(default=0, blank=True, null=True, verbose_name='Моя оценка фильму')
+    has_movie_released = models.BooleanField(default=False)
     director = models.ForeignKey(Directors, on_delete=models.CASCADE, verbose_name="Режиссер фильма")
+    genre = models.ForeignKey(MovieGenres, on_delete=models.CASCADE, verbose_name="Жанр фильма")
 
     class Meta:
         db_table = 'film'

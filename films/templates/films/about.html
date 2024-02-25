@@ -1,0 +1,11 @@
+{% extends 'films/base.html' %}
+
+{% block content %}
+    <h1>Контент страницы о нас</h1>
+
+        {% for genre in genres %}
+    <ul>
+        <li>{{ genre.title }}</li>
+    </ul>
+    {% endfor %}
+{% endblock %}

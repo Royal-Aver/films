@@ -1,0 +1,12 @@
+{% extends 'films/base.html' %}
+
+{% block content %}
+    <h1>Контент главной страницы</h1>
+
+    {% for director in directors %}
+    <ul>
+        <li>{{ director.name }}</li>
+    </ul>
+    {% endfor %}
+{% endblock %}
+
