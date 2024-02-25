@@ -49,8 +49,8 @@ class Migration(migrations.Migration):
                 ('release_date', models.DateTimeField(verbose_name='Дата выхода фильма')),
                 ('score', models.PositiveIntegerField(blank=True, default=0, null=True, verbose_name='Моя оценка фильму')),
                 ('has_movie_released', models.BooleanField(default=False)),
-                ('director', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='films.directors', verbose_name='Режиссер фильма')),
-                ('genre', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='films.moviegenres', verbose_name='Жанр фильма')),
+                ('director', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog_films.directors', verbose_name='Режиссер фильма')),
+                ('genre', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog_films.moviegenres', verbose_name='Жанр фильма')),
             ],
             options={
                 'verbose_name': 'Фильм',

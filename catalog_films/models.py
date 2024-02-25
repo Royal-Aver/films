@@ -30,7 +30,7 @@ class Films(models.Model):
     slug = models.SlugField(unique=True, verbose_name='URL')
     description = models.TextField(null=True, blank=True, verbose_name='Описание фильма')
     image = models.ImageField(upload_to='films_images', verbose_name='Постер фильма')
-    release_date = models.DateTimeField(verbose_name='Дата выхода фильма')
+    release_date = models.DateField(verbose_name='Дата выхода фильма')
     score = models.PositiveIntegerField(default=0, blank=True, null=True, verbose_name='Моя оценка фильму')
     has_movie_released = models.BooleanField(default=False)
     director = models.ForeignKey(Directors, on_delete=models.CASCADE, verbose_name="Режиссер фильма")

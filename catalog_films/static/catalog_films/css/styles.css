@@ -1,0 +1,60 @@
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        text-decoration: none;
+        color: #666;
+    }
+    ul {
+    list-style: none;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+        .category {
+        margin-bottom: 20px;
+    }
+    .category-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .film-card {
+        display: flex;
+        border: 1px solid #eaeaea;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .film-image {
+        flex: 1;
+    }
+    .film-image img {
+        width: 90%;
+        height: auto;
+    }
+    .film-details {
+        flex: 2;
+        padding: 20px;
+    }
+    .film-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .film-description {
+        color: #666;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .film-price {
+        font-size: 18px;
+        color: #007bff;
+    }

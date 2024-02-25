@@ -1,5 +1,5 @@
 from django.contrib import admin
-from films.models import MovieGenres, Films, Directors
+from catalog_films.models import MovieGenres, Films, Directors
 
 
 @admin.register(MovieGenres)
