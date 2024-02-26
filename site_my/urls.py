@@ -7,8 +7,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('catalog_films.urls', namespace='catalog_films')), # если добавлю начальную страницу,
-    # то здесь маршрут задать catalog_films
+    path('', include('catalog_films.urls', namespace='main')),
 ]
 
 if settings.DEBUG:

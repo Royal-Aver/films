@@ -6,34 +6,29 @@
 	<title>{{title}}</title>
 	<link type="text/css" href="{% static 'catalog_films/css/styles.css' %}" rel="stylesheet" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="shortcut icon" href="{% static 'women/images/logo.png' %}" type="image/x-icon"/>
+	<link rel="shortcut icon" href="{% static 'catalog_films/images/logo.png' %}" type="image/x-icon"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <body>
 <div class="container">
-    <h1>Жанры фильмов</h1>
 
-    <ul class="category">
-        {% for genre in genres %}
-         <li class="category-title">
-            <a href="#">{{ genre.title }}</a>
+    <nav>
+    <ul>
+        <li>
+            <a href="{% url 'main:index' %}">
+            <img src="{% static 'catalog_films/images/logo.png' %}" width="15%" alt="Сайт о кино">
+        </a>
         </li>
-        {% endfor %}
+        <li class="nav-item"><a class="nav-link" href="{% url 'main:about_site' %}">О сайте</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'main:add_film' %}">Добавить фильм</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Войти</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Панель администратора</a></li>
     </ul>
+</nav>
 
-    {% for film in films %}
-    <div class="film-card">
-        <div class="film-image">
-            <img src="{{ film.image.url }}" alt="{{ film.title }}">
-        </div>
-        <div class="film-details">
-            <a href="#" class="film-title">{{ film.title }}</a>
-            <div class="film-description">{{ film.description|truncatechars:200 }}</div>
-        </div>
-    </div>
-    {% endfor %}
-
+{% block content %}
+{% endblock %}
 
 </div>
 </body>

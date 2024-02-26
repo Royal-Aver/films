@@ -1,0 +1,49 @@
+{% extends 'catalog_films/base.html' %}
+{% load static %}
+
+{% block content %}
+<form action="{% url 'main:add_film' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="">
+                <label for="id_title" class="form-label">Название фильма*</label>
+                <input type="text" class="form-control" id="id_title"
+                       value="{% if form.title.value %}{{ form.title.value }}{% endif %}"
+                       name="title"
+                       placeholder="Введите название фильма" required>
+                {% if form.title.errors %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                    {{ form.title.errors }}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="">
+                <label for="id_description" class="form-label">Описание фильма*</label>
+                <input type="text" class="form-control" id="id_description"
+                       value="{% if form.description.value %}{{ form.description.value }}{% endif %}"
+                       name="description"
+                       placeholder="Введите описание фильма" required>
+                {% if form.description.errors %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                    {{ form.description.errors }}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="">
+                <label for="id_genre" class="form-label">Выберете жанр фильма*</label>
+                <input type="text" class="form-control" id="id_genre"
+                       value="{% if form.genre.value %}{{ form.genre.value }}{% endif %}"
+                       name="genre"
+                       placeholder="Выберете жанр фильма" required>
+                {% if form.genre.errors %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                    {{ form.genre.errors }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <button type="submit">Добавить фильм</button>
+    </form>
+{% endblock %}

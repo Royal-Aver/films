@@ -1,11 +1,28 @@
 {% extends 'catalog_films/base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1>Контент главной страницы</h1>
+    <h1>Жанры фильмов</h1>
 
-    {% for director in directors %}
-    <ul>
-        <li>{{ director.name }}</li>
+    <ul class="category">
+        {% for genre in genres %}
+         <li class="category-title">
+            <a href="#">{{ genre.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% for film in films %}
+    <ul class="list-films">
+        <li class="film-card">
+            <div class="film-image">
+            <img src="{{ film.image.url }}" alt="{{ film.title }}">
+        </div>
+        <div class="film-details">
+            <a href="#" class="film-title">{{ film.title }}</a>
+            <div class="film-description">{{ film.description|truncatechars:200 }}</div>
+        </div>
+        </li>
     </ul>
     {% endfor %}
 {% endblock %}
